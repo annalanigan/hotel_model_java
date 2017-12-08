@@ -1,4 +1,5 @@
 package Rooms;
+import People.Guest;
 
 import java.util.ArrayList;
 
@@ -12,5 +13,19 @@ public class Room {
         this.checkedin = new ArrayList<>();
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
 
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public ArrayList<Guest> getCheckedin() {
+        return checkedin;
+    }
+
+    public void setCheckedin(ArrayList<Guest> checkedin) {
+        this.checkedin = checkedin;
+    }
 }

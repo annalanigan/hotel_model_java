@@ -1,3 +1,5 @@
+package People;
+
 public class Guest {
 
     private String name;

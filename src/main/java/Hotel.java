@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public class Hotel {
 
     private String name;
-    private ArrayList<Rooms.Bedroom> bedrooms;
-    private ArrayList<Rooms.MeetingRoom> meetingRooms;
-    private ArrayList<Rooms.PublicRoom> publicRooms;
+    private ArrayList<Bedroom> bedrooms;
+    private ArrayList<MeetingRoom> meetingRooms;
+    private ArrayList<PublicRoom> publicRooms;
 
     public Hotel(String name) {
         this.name = name;
