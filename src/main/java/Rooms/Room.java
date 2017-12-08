@@ -5,20 +5,20 @@ import java.util.ArrayList;
 
 public class Room {
 
-    private int capacity;
+    private String name;
     private ArrayList<Guest> checkedin;
 
-    public Room(int capacity) {
-        this.capacity = capacity;
+    public Room(String name) {
+        this.name = name;
         this.checkedin = new ArrayList<>();
     }
 
-    public int getCapacity() {
-        return capacity;
+    public String getName() {
+        return name;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void setCapacity(String name) {
+        this.name = name;
     }
 
     public ArrayList<Guest> getCheckedin() {

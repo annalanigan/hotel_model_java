@@ -3,13 +3,13 @@ package Rooms;
 public class Bedroom extends Room {
 
     private BedType type;
-    private int roomNumber;
+    private int capacity;
     private double roomRate;
 
-    public Bedroom(int capacity, BedType type, int roomNumber, double roomRate) {
-        super(capacity);
+    public Bedroom(String name, BedType type, double roomRate) {
+        super(name);
         this.type = type;
-        this.roomNumber = roomNumber;
+        this.capacity = this.type.getValue();
         this.roomRate = roomRate;
     }
 
@@ -19,14 +19,15 @@ public class Bedroom extends Room {
 
     public void setType(BedType type) {
         this.type = type;
+        this.capacity = type.getValue();
     }
 
-    public int getRoomNumber() {
-        return roomNumber;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
+    private void setCapacity(BedType newType) {
+        this.capacity = newType.getValue();
     }
 
     public double getRoomRate() {

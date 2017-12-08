@@ -2,21 +2,21 @@ package Rooms;
 
 public class PublicRoom extends Room{
 
-    private String name;
+    private int capacity;
     private String type;
 
-    public PublicRoom(int capacity, String name, String type) {
-        super(capacity);
-        this.name = name;
+    public PublicRoom(String name, int capacity, String type) {
+        super(name);
+        this.capacity = capacity;
         this.type = type;
     }
 
-    public String getName() {
-        return name;
+    public int capacity() {
+        return capacity;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(int capacity) {
+        this.capacity = capacity;
     }
 
     public String getType() {

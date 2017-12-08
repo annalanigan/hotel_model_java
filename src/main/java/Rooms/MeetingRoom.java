@@ -2,21 +2,21 @@ package Rooms;
 
 public class MeetingRoom extends Room{
 
-    private String name;
+    private int capacity;
     private double rate;
 
-    public MeetingRoom(int capacity, String name, double rate) {
-        super(capacity);
-        this.name = name;
+    public MeetingRoom(String name, int capacity, double rate) {
+        super(name);
+        this.capacity = capacity;
         this.rate = rate;
     }
 
-    public String getName() {
-        return name;
+    public int getCapacity() {
+        return capacity;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.capacity = capacity;
     }
 
     public double getRate() {
