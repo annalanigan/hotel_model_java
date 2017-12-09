@@ -55,4 +55,18 @@ public class BedroomTest {
         assertEquals(1, bedroom1.checkCheckedIn());
     }
 
+    @Test
+    public void canCheckGuestInRoom(){
+        bedroom5.checkIn(guest3);
+        assertEquals("[Bill]", bedroom5.guestName());
+    }
+
+    @Test
+    public void canCheckGuestsInRoom(){
+        bedroom3.checkIn(guest3);
+        bedroom3.checkIn(guest2);
+        bedroom3.checkIn(guest1);
+        assertEquals("[Bill, Simon, Betty]", bedroom3.guestName());
+    }
+
 }

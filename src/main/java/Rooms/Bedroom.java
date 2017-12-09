@@ -53,4 +53,11 @@ public class Bedroom extends Room {
     }
 
 
+    public String guestName() {
+        ArrayList<String> result = new ArrayList<>();
+        for (Guest each : checkedIn ) {
+           result.add(each.getName());
+        }
+        return result.toString();
+    }
 }
