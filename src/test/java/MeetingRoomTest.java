@@ -1,6 +1,7 @@
 import People.Guest;
 import People.Party;
 import Rooms.MeetingRoom;
+import Rooms.MeetingType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,10 +21,10 @@ public class MeetingRoomTest {
 
     @Before
     public void before(){
-        meetingRoom1 = new MeetingRoom("Bentley Suite", 150, 1500);
-        meetingRoom2 = new MeetingRoom("Jackson Room", 50, 540);
-        meetingRoom3 = new MeetingRoom("Taylor Room", 25, 300);
-        meetingRoom4 = new MeetingRoom("Simpsons Suite", 450, 3000);
+        meetingRoom1 = new MeetingRoom(MeetingType.BENTLEYSUITE);
+        meetingRoom2 = new MeetingRoom(MeetingType.THEORANGERY);
+        meetingRoom3 = new MeetingRoom(MeetingType.RAEBURNROOM);
+        meetingRoom4 = new MeetingRoom(MeetingType.THESIMPSONSUITE);
         guest1 = new Guest("Mr John Jones");
         guest2 = new Guest("Miss Sarah Sharp");
         party1 = new Party(guest1, 100);

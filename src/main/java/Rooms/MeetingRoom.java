@@ -7,9 +7,9 @@ public class MeetingRoom extends Room{
     private double rate;
     private Party party;
 
-    public MeetingRoom(String name, int capacity, double rate) {
-        super(name, capacity);
-        this.rate = rate;
+    public MeetingRoom(MeetingType type) {
+        super(type.getName(), type.getCapacity());
+        this.rate = type.getRate();
     }
 
     public Party getParty() {

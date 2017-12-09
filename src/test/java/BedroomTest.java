@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class BedroomTest {
 
@@ -16,12 +17,12 @@ public class BedroomTest {
 
     @Before
     public void before(){
-        bedroom1 = new Bedroom("102", BedType.DOUBLE, 105.00);
-        bedroom2 = new Bedroom("102", BedType.SINGLE, 98.00);
-        bedroom3 = new Bedroom("102", BedType.FAMILY3, 120.00);
-        bedroom4 = new Bedroom("102", BedType.SUPERIOR, 250.00);
-        bedroom5 = new Bedroom("102", BedType.TWIN, 105.00);
-        bedroom6 = new Bedroom("102", BedType.FAMILY4, 150.00);
+        bedroom1 = new Bedroom("102", BedType.DOUBLE);
+        bedroom2 = new Bedroom("102", BedType.SINGLE);
+        bedroom3 = new Bedroom("102", BedType.FAMILY3);
+        bedroom4 = new Bedroom("102", BedType.SUPERIOR);
+        bedroom5 = new Bedroom("102", BedType.TWIN);
+        bedroom6 = new Bedroom("102", BedType.FAMILY4);
     }
 
     @Test
@@ -32,6 +33,11 @@ public class BedroomTest {
     @Test
     public void roomHasCapacityCheck2(){
         assertEquals(4, bedroom6.getCapacity());
+    }
+
+    @Test
+    public void roomHasRate(){
+        assertEquals(105.00, bedroom1.getRoomRate(), 0.01);
     }
 
 }
