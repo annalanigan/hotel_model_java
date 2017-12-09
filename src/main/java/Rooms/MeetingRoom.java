@@ -26,6 +26,10 @@ public class MeetingRoom extends Room{
             this.party.getOrganiser().addToBill(this.getRate());}
     }
 
+    public void checkOutParty(){
+        this.party = null;
+    }
+
     public void setRate(double rate) {
         this.rate = rate;
     }

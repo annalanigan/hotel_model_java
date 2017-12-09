@@ -40,9 +40,36 @@ public class HotelTest {
         myHotel.checkInBed(guest1, bedroom1);
         myHotel.checkInBed(guest2, bedroom1);
         myHotel.checkInBed(guest3, bedroom1);
+        // check only correct capacity added to bedroom
         assertEquals(2, bedroom1.checkCheckedIn());
+        // check roomrate added to lead guest
         assertEquals(250.00, guest1.getBill(), 0.01);
+        //check no rate added to subsequent guests
         assertEquals(0, guest2.getBill(), 0.01);
+    }
+
+    @Test
+    public void canCheckOut__Bedroom(){
+        myHotel.checkInBed(guest1, bedroom1);
+        myHotel.checkInBed(guest2, bedroom1);
+        myHotel.checkOutBed(bedroom1);
+        assertEquals(0, bedroom1.checkCheckedIn());
+    }
+
+    @Test
+    public void canCheckIn__Meeting(){
+        myHotel.checkInMeeting(party1, meeting2);
+        //check party added to meeting room
+        assertEquals(party1, meeting2.getParty());
+        // check room rate added to organiser
+        assertEquals(350, party1.getOrganiser().getBill(), 0.01);
+    }
+
+    @Test
+    public void canCheckOut__Meeting(){
+        myHotel.checkInMeeting(party2, meeting1);
+        myHotel.checkOutMeeting(meeting1);
+        assertEquals(null, meeting1.getParty());
     }
 
 }

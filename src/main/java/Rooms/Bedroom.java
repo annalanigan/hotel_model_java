@@ -44,5 +44,13 @@ public class Bedroom extends Room {
         this.checkedIn.add(guest);
     }
 
+    public boolean checkAvailable(){
+        return this.checkCheckedIn() < this.getCapacity();
+    }
+
+    public void checkOut(){
+        this.checkedIn.clear();
+    }
+
 
 }

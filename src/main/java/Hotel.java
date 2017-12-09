@@ -1,4 +1,5 @@
 import People.Guest;
+import People.Party;
 import Rooms.Bedroom;
 import Rooms.MeetingRoom;
 import Rooms.PublicRoom;
@@ -51,6 +52,7 @@ public class Hotel {
         this.publicRooms = publicRooms;
     }
 
+
     public void checkInBed(Guest guest1, Bedroom bedroom1) {
         if (bedroom1.checkCheckedIn() == 0){
             bedroom1.checkIn(guest1);
@@ -61,8 +63,15 @@ public class Hotel {
         }
     }
 
-    // Check in methods
+    public void checkOutBed(Bedroom bedroom){
+        bedroom.checkOut();
+    }
 
-    // check out methods
+    public void checkInMeeting(Party party, MeetingRoom meeting) {
+        meeting.checkInParty(party);
+    }
 
+    public void checkOutMeeting(MeetingRoom meeting) {
+        meeting.checkOutParty();
+    }
 }
