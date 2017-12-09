@@ -1,16 +1,15 @@
 package Rooms;
 import People.Guest;
-
 import java.util.ArrayList;
 
 public class Room {
 
     private String name;
-    private ArrayList<Guest> checkedin;
+    private int capacity;
 
-    public Room(String name) {
+    public Room(String name, int capacity) {
         this.name = name;
-        this.checkedin = new ArrayList<>();
+        this.capacity = capacity;
     }
 
     public String getName() {
@@ -21,11 +20,11 @@ public class Room {
         this.name = name;
     }
 
-    public ArrayList<Guest> getCheckedin() {
-        return checkedin;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
-    public void setCheckedin(ArrayList<Guest> checkedin) {
-        this.checkedin = checkedin;
+    public int getCapacity() {
+        return capacity;
     }
 }

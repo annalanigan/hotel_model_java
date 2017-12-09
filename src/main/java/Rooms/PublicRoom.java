@@ -1,22 +1,25 @@
 package Rooms;
 
+import People.Guest;
+
+import java.util.ArrayList;
+
 public class PublicRoom extends Room{
 
-    private int capacity;
     private String type;
+    private ArrayList<Guest> bookedIn;
 
     public PublicRoom(String name, int capacity, String type) {
-        super(name);
-        this.capacity = capacity;
+        super(name, capacity);
         this.type = type;
     }
 
-    public int capacity() {
-        return capacity;
+    public ArrayList<Guest> getBookedIn() {
+        return bookedIn;
     }
 
-    public void setName(int capacity) {
-        this.capacity = capacity;
+    public void setBookedIn(ArrayList<Guest> bookedIn) {
+        this.bookedIn = bookedIn;
     }
 
     public String getType() {

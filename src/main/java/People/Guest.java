@@ -3,10 +3,11 @@ package People;
 public class Guest {
 
     private String name;
-    private int bill;
+    private double bill;
 
     public Guest(String name) {
         this.name = name;
+        this.bill = 0;
     }
 
     public String getName() {
@@ -17,11 +18,15 @@ public class Guest {
         this.name = name;
     }
 
-    public int getBill() {
+    public double getBill() {
         return bill;
     }
 
-    public void setBill(int bill) {
+    public void setBill(double bill) {
         this.bill = bill;
+    }
+
+    public void addToBill(double value){
+        this.bill += value;
     }
 }

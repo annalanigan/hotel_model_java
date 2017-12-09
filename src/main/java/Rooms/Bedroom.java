@@ -1,16 +1,20 @@
 package Rooms;
 
+import People.Guest;
+
+import java.util.ArrayList;
+
 public class Bedroom extends Room {
 
     private BedType type;
-    private int capacity;
     private double roomRate;
+    private ArrayList<Guest> checkedIn;
 
     public Bedroom(String name, BedType type, double roomRate) {
-        super(name);
+        super(name, type.getValue());
         this.type = type;
-        this.capacity = this.type.getValue();
         this.roomRate = roomRate;
+        this.checkedIn = new ArrayList<>();
     }
 
     public BedType getType() {
@@ -19,15 +23,6 @@ public class Bedroom extends Room {
 
     public void setType(BedType type) {
         this.type = type;
-        this.capacity = type.getValue();
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
-    private void setCapacity(BedType newType) {
-        this.capacity = newType.getValue();
     }
 
     public double getRoomRate() {
@@ -36,5 +31,13 @@ public class Bedroom extends Room {
 
     public void setRoomRate(double roomRate) {
         this.roomRate = roomRate;
+    }
+
+    public ArrayList<Guest> getCheckedIn() {
+        return checkedIn;
+    }
+
+    public void setCheckedIn(ArrayList<Guest> checkedIn) {
+        this.checkedIn = checkedIn;
     }
 }
