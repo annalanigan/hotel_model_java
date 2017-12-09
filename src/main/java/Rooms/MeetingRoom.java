@@ -20,8 +20,12 @@ public class MeetingRoom extends Room{
         return rate;
     }
 
+    public boolean checkAvailable(){
+        return this.party == null;
+    }
+
     public void checkInParty(Party party) {
-        if (party.getPartySize() <= this.getCapacity()){
+        if ((this.party == null)&&(party.getPartySize() <= this.getCapacity())){
             this.party = party;
             this.party.getOrganiser().addToBill(this.getRate());}
     }

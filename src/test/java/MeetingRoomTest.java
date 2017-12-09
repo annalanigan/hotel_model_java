@@ -43,5 +43,11 @@ public class MeetingRoomTest {
         assertEquals(null, meetingRoom3.getParty());
     }
 
+    @Test
+    public void cantAddPartyIfOccupied(){
+        meetingRoom2.checkInParty(party2);
+        assertEquals(false, meetingRoom2.checkAvailable());
+    }
+
 
 }

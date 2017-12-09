@@ -68,6 +68,7 @@ public class HotelTest {
     @Test
     public void canCheckOut__Meeting(){
         myHotel.checkInMeeting(party2, meeting1);
+        assertEquals(party2, meeting1.getParty());
         myHotel.checkOutMeeting(meeting1);
         assertEquals(null, meeting1.getParty());
     }
