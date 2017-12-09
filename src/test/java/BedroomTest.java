@@ -1,3 +1,4 @@
+import People.Guest;
 import Rooms.BedType;
 import Rooms.Bedroom;
 import org.junit.Before;
@@ -14,6 +15,10 @@ public class BedroomTest {
     Bedroom bedroom4;
     Bedroom bedroom5;
     Bedroom bedroom6;
+    Guest guest1;
+    Guest guest2;
+    Guest guest3;
+
 
     @Before
     public void before(){
@@ -23,6 +28,9 @@ public class BedroomTest {
         bedroom4 = new Bedroom("102", BedType.SUPERIOR);
         bedroom5 = new Bedroom("102", BedType.TWIN);
         bedroom6 = new Bedroom("102", BedType.FAMILY4);
+        guest1 = new Guest("Betty");
+        guest2 = new Guest("Simon");
+        guest3 = new Guest("Bill");
     }
 
     @Test
@@ -38,6 +46,12 @@ public class BedroomTest {
     @Test
     public void roomHasRate(){
         assertEquals(105.00, bedroom1.getRoomRate(), 0.01);
+    }
+
+    @Test
+    public void canChecIn(){
+        bedroom1.checkIn(guest1);
+        assertEquals(1, bedroom1.checkCheckedIn());
     }
 
 }

@@ -16,7 +16,7 @@ public class Room {
         return name;
     }
 
-    public void setCapacity(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 

@@ -1,7 +1,6 @@
 package Rooms;
 
 import People.Guest;
-
 import java.util.ArrayList;
 
 public class Bedroom extends Room {
@@ -33,11 +32,17 @@ public class Bedroom extends Room {
         this.roomRate = roomRate;
     }
 
-    public ArrayList<Guest> getCheckedIn() {
-        return checkedIn;
+    public String getCheckedIn() {
+        return checkedIn.get(0).getName();
     }
 
-    public void setCheckedIn(ArrayList<Guest> checkedIn) {
-        this.checkedIn = checkedIn;
+    public int checkCheckedIn(){
+        return checkedIn.size();
     }
+
+    public void checkIn(Guest guest) {
+        this.checkedIn.add(guest);
+    }
+
+
 }

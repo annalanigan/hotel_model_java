@@ -1,3 +1,4 @@
+import People.Guest;
 import Rooms.Bedroom;
 import Rooms.MeetingRoom;
 import Rooms.PublicRoom;
@@ -48,6 +49,16 @@ public class Hotel {
 
     public void setPublicRooms(ArrayList<PublicRoom> publicRooms) {
         this.publicRooms = publicRooms;
+    }
+
+    public void checkInBed(Guest guest1, Bedroom bedroom1) {
+        if (bedroom1.checkCheckedIn() == 0){
+            bedroom1.checkIn(guest1);
+            guest1.addToBill(bedroom1.getRoomRate());
+        }
+        else if (bedroom1.getCapacity() > bedroom1.checkCheckedIn()) {
+            bedroom1.checkIn(guest1);
+        }
     }
 
     // Check in methods
