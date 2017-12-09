@@ -1,5 +1,6 @@
 import People.Guest;
 import People.Party;
+import Rooms.BedRooms;
 import Rooms.Bedroom;
 import Rooms.MeetingRoom;
 import Rooms.PublicRoom;
@@ -32,8 +33,38 @@ public class Hotel {
         return bedrooms;
     }
 
-    public void addBedrooms(Bedroom bedroom) {
-        this.bedrooms.add(bedroom);
+    public String showListRooms(){
+        ArrayList<String> names = new ArrayList<>();
+        for (Bedroom room : bedrooms) {
+            names.add(room.getName());
+        }
+        return names.toString();
+    }
+
+    public String showAvailRooms(){
+        ArrayList<String> names = new ArrayList<>();
+        for (Bedroom room : bedrooms) {
+            if (room.checkCheckedIn() == 0){
+            names.add(room.getName());
+            }
+        }
+        return names.toString();
+    }
+
+
+    public void addBedroom(Bedroom bedroom){
+        bedrooms.add(bedroom);
+    }
+
+    public void addBedrooms() {
+        for (BedRooms room : BedRooms.values()) {
+            Bedroom aRoom = new Bedroom(room);
+            this.bedrooms.add(aRoom);
+        }
+    }
+
+    public int getNoOfBedrooms(){
+        return bedrooms.size();
     }
 
     public ArrayList<MeetingRoom> getMeetingRooms() {

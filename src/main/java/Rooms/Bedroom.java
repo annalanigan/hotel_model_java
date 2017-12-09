@@ -9,10 +9,10 @@ public class Bedroom extends Room {
     private double roomRate;
     private ArrayList<Guest> checkedIn;
 
-    public Bedroom(String name, BedType type) {
-        super(name, type.getValue());
-        this.type = type;
-        this.roomRate = type.getRate();
+    public Bedroom(BedRooms bedRoom) {
+        super(bedRoom.getPretty(), bedRoom.getType().getValue());
+        this.type = bedRoom.getType();
+        this.roomRate = bedRoom.getType().getRate();
         this.checkedIn = new ArrayList<>();
     }
 

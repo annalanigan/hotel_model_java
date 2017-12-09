@@ -1,6 +1,7 @@
 import People.Guest;
 import People.Party;
 import Rooms.*;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,8 +29,8 @@ public class HotelTest {
         guest3 = new Guest("Henry Jeffery");
         party1 = new Party(guest2, 15);
         party2 = new Party(guest3, 150);
-        bedroom1 = new Bedroom("103", BedType.SUPERIOR);
-        bedroom2 = new Bedroom("33", BedType.DOUBLE);
+        bedroom1 = new Bedroom(BedRooms.TWONINE);
+        bedroom2 = new Bedroom(BedRooms.TWOTWO);
         meeting1 = new MeetingRoom(MeetingType.THESIMPSONSUITE);
         meeting2 = new MeetingRoom(MeetingType.RAEBURNROOM);
         publicRoom1 = new PublicRoom("Ricks Restaurant", 100, "Dining Room");
@@ -73,4 +74,24 @@ public class HotelTest {
         assertEquals(null, meeting1.getParty());
     }
 
+    @Test
+    public void canSetUpBedrooms(){
+        myHotel.addBedrooms();
+        assertEquals(21, myHotel.getNoOfBedrooms());
+    }
+
+    @Test
+    public void canShowBedrooms(){
+        myHotel.addBedroom(bedroom1);
+        myHotel.addBedroom(bedroom2);
+        assertEquals("[29, 22]", myHotel.showListRooms());
+    }
+
+    @Test
+    public void canShowAvailableRooms(){
+        myHotel.addBedroom(bedroom1);
+        myHotel.addBedroom(bedroom2);
+        myHotel.checkInBed(guest1,bedroom2);
+        assertEquals("[29]", myHotel.showAvailRooms());
+    }
 }

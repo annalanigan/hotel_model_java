@@ -1,4 +1,5 @@
 import People.Guest;
+import Rooms.BedRooms;
 import Rooms.BedType;
 import Rooms.Bedroom;
 import org.junit.Before;
@@ -22,12 +23,12 @@ public class BedroomTest {
 
     @Before
     public void before(){
-        bedroom1 = new Bedroom("102", BedType.DOUBLE);
-        bedroom2 = new Bedroom("102", BedType.SINGLE);
-        bedroom3 = new Bedroom("102", BedType.FAMILY3);
-        bedroom4 = new Bedroom("102", BedType.SUPERIOR);
-        bedroom5 = new Bedroom("102", BedType.TWIN);
-        bedroom6 = new Bedroom("102", BedType.FAMILY4);
+        bedroom1 = new Bedroom(BedRooms.ONEZERO);
+        bedroom2 = new Bedroom(BedRooms.ONEONE);
+        bedroom3 = new Bedroom(BedRooms.ONEFOUR);
+        bedroom4 = new Bedroom(BedRooms.THREEZERO);
+        bedroom5 = new Bedroom(BedRooms.ONEEIGHT);
+        bedroom6 = new Bedroom(BedRooms.ONEFIVE);
         guest1 = new Guest("Betty");
         guest2 = new Guest("Simon");
         guest3 = new Guest("Bill");
