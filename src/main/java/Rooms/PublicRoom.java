@@ -12,6 +12,7 @@ public class PublicRoom extends Room{
     public PublicRoom(String name, int capacity, String type) {
         super(name, capacity);
         this.type = type;
+        this.bookedIn = new ArrayList<>();
     }
 
     public ArrayList<Guest> getBookedIn() {
@@ -28,5 +29,21 @@ public class PublicRoom extends Room{
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getInhouse(){
+        return this.bookedIn.size();
+    }
+
+    public boolean checkAvailable(){
+        return this.bookedIn.size() < this.getCapacity();
+    }
+
+    public void addGuest(Guest guest) {
+        this.bookedIn.add(guest);
+    }
+
+    public void removeGuest(Guest guest) {
+        this.bookedIn.remove(guest);
     }
 }

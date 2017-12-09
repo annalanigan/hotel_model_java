@@ -8,7 +8,7 @@ public class MeetingRoom extends Room{
     private Party party;
 
     public MeetingRoom(MeetingType type) {
-        super(type.getName(), type.getCapacity());
+        super(type.getPretty(), type.getCapacity());
         this.rate = type.getRate();
     }
 

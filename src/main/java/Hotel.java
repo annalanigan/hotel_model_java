@@ -32,34 +32,33 @@ public class Hotel {
         return bedrooms;
     }
 
-    public void setBedrooms(ArrayList<Bedroom> bedrooms) {
-        this.bedrooms = bedrooms;
+    public void addBedrooms(Bedroom bedroom) {
+        this.bedrooms.add(bedroom);
     }
 
     public ArrayList<MeetingRoom> getMeetingRooms() {
         return meetingRooms;
     }
 
-    public void setMeetingRooms(ArrayList<MeetingRoom> meetingRooms) {
-        this.meetingRooms = meetingRooms;
+    public void addMeetingRooms(MeetingRoom meetingRoom) {
+        this.meetingRooms.add(meetingRoom);
     }
 
     public ArrayList<PublicRoom> getPublicRooms() {
         return publicRooms;
     }
 
-    public void setPublicRooms(ArrayList<PublicRoom> publicRooms) {
-        this.publicRooms = publicRooms;
+    public void addPublicRooms(PublicRoom publicRoom) {
+        this.publicRooms.add(publicRoom);
     }
 
-
-    public void checkInBed(Guest guest1, Bedroom bedroom1) {
-        if (bedroom1.checkCheckedIn() == 0){
-            bedroom1.checkIn(guest1);
-            guest1.addToBill(bedroom1.getRoomRate());
+    public void checkInBed(Guest guest, Bedroom bedroom) {
+        if (bedroom.checkCheckedIn() == 0){
+            bedroom.checkIn(guest);
+            guest.addToBill(bedroom.getRoomRate());
         }
-        else if (bedroom1.getCapacity() > bedroom1.checkCheckedIn()) {
-            bedroom1.checkIn(guest1);
+        else if (bedroom.getCapacity() > bedroom.checkCheckedIn()) {
+            bedroom.checkIn(guest);
         }
     }
 
@@ -74,4 +73,6 @@ public class Hotel {
     public void checkOutMeeting(MeetingRoom meeting) {
         meeting.checkOutParty();
     }
+
+
 }

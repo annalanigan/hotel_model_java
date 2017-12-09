@@ -26,7 +26,7 @@ public enum MeetingType {
         return rate;
     }
 
-    public String getName() {
+    public String getPretty() {
         return name;
     }
 }
