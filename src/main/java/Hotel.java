@@ -124,10 +124,18 @@ public class Hotel {
         }
     }
 
-    public double checkOutBed(Bedroom bedroom){
-        double bill = bedroom.getCheckedIn().getBill();
+    public Bedroom getBedroomObject(String roomName) {
+        Bedroom newObject = null;
+        for (Bedroom bedroom : bedrooms) {
+            if (bedroom.getName() == name) {
+                newObject = bedroom;
+            }
+        }
+        return newObject;
+    }
+
+    public void checkOutBed(Bedroom bedroom){
         bedroom.checkOut();
-        return bill;
     }
 
     public void checkInMeeting(Party party, MeetingRoom meeting) {

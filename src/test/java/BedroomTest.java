@@ -70,6 +70,15 @@ public class BedroomTest {
     }
 
     @Test
+    public void canCheckGuestsOutRoom(){
+        bedroom3.checkIn(guest3);
+        bedroom3.checkIn(guest2);
+        bedroom3.checkIn(guest1);
+        bedroom3.checkOut();
+        assertEquals(0, bedroom3.checkCheckedIn());
+    }
+
+    @Test
     public void canDisplayRoomNameandType(){
         assertEquals("10: double", bedroom1.showDetails());
     }

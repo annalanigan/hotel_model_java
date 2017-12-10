@@ -1,5 +1,5 @@
 import People.Guest;
-
+import Rooms.Bedroom;
 import java.util.Scanner;
 
 public class Ui {
@@ -32,19 +32,20 @@ public class Ui {
         System.out.println(guestName + " has been checked into room " + roomName + " for " + duration + " nights");
     }
 
-//    public void checkOutGuest(Hotel hotel){
-//        Scanner scan = new Scanner(System.in);
-//        System.out.println("Please enter the Room number you wish to check guest out of:");
-//        String roomName = scan.next();
-//
-//        hotel.checkOutBed(roomName);
-//        System.out.println();
-//        System.out.println("nights");
+    public static void checkOutGuest(Hotel hotel){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter the Room number you wish to check guest out of:");
+        String roomName = scan.next();
+        Bedroom bedobject = hotel.getBedroomObject(roomName);
+//        double billToPay = hotel.getBill(bedobject);
+        hotel.checkOutBed(bedobject);
+        System.out.println();
+//        System.out.println("The final bill to pay is " + billToPay);
+        System.out.println("Room " + roomName + " has been checked out.");
+    }
+
+//    public void bookIntoMeetingRoom(){
 //
 //    }
-
-    public void bookIntoMeetingRoom(){
-
-    }
 
 }

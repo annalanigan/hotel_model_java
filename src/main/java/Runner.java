@@ -15,6 +15,7 @@ public class Runner {
         Ui.welcome();
         Ui.showVacantRooms(hotel);
         Ui.checkInGuest(hotel);
+        Ui.checkOutGuest(hotel);
     }
 
 }
