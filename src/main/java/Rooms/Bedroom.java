@@ -32,8 +32,8 @@ public class Bedroom extends Room {
         this.roomRate = roomRate;
     }
 
-    public String getCheckedIn() {
-        return checkedIn.get(0).getName();
+    public Guest getCheckedIn() {
+        return checkedIn.get(0);
     }
 
     public int checkCheckedIn(){
@@ -52,6 +52,9 @@ public class Bedroom extends Room {
         this.checkedIn.clear();
     }
 
+    public double checkBillofGuest(){
+        return checkedIn.get(0).getBill();
+    }
 
     public String guestName() {
         ArrayList<String> result = new ArrayList<>();
@@ -59,5 +62,9 @@ public class Bedroom extends Room {
            result.add(each.getName());
         }
         return result.toString();
+    }
+
+    public String showDetails() {
+        return getName() + ": " + type.getPretty();
     }
 }

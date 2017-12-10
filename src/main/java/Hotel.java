@@ -33,30 +33,45 @@ public class Hotel {
         return bedrooms;
     }
 
+    //First list rooms method - I have kept this to demonstrate some tests
     public String showListRooms(){
         ArrayList<String> names = new ArrayList<>();
         for (Bedroom room : bedrooms) {
-            names.add(room.getName());
+            names.add(room.showDetails());
         }
         return names.toString();
     }
+    // Second List Room Method!
+    public void showListRooms2(){
+        for (Bedroom room : bedrooms) {
+            System.out.println(room.showDetails());
+        }
+    }
 
+    //First list available rooms method - I have kept this to demonstrate some tests
     public String showAvailRooms(){
         ArrayList<String> names = new ArrayList<>();
         for (Bedroom room : bedrooms) {
             if (room.checkCheckedIn() == 0){
-            names.add(room.getName());
+            names.add(room.showDetails());
             }
         }
         return names.toString();
     }
-
+    // Second available List Room Method!
+    public void showAvailRooms2(){
+        for (Bedroom room : bedrooms) {
+            if (room.checkCheckedIn() == 0) {
+                System.out.println(room.showDetails());
+            }
+        }
+    }
 
     public void addBedroom(Bedroom bedroom){
         bedrooms.add(bedroom);
     }
 
-    public void addBedrooms() {
+    public void addBedrooms(){
         for (BedRooms room : BedRooms.values()) {
             Bedroom aRoom = new Bedroom(room);
             this.bedrooms.add(aRoom);
@@ -109,9 +124,10 @@ public class Hotel {
         }
     }
 
-
-    public void checkOutBed(Bedroom bedroom){
+    public double checkOutBed(Bedroom bedroom){
+        double bill = bedroom.getCheckedIn().getBill();
         bedroom.checkOut();
+        return bill;
     }
 
     public void checkInMeeting(Party party, MeetingRoom meeting) {

@@ -109,19 +109,39 @@ public class HotelTest {
         assertEquals(0, guest3.getBill(), 0.01);
     }
 
+    // first attempt at listing the bedrooms Test
     @Test
     public void canShowBedrooms(){
         myHotel.addBedroom(bedroom1);
         myHotel.addBedroom(bedroom2);
-        assertEquals("[29, 22]", myHotel.showListRooms());
+        assertEquals("[29: superior double, 22: double]", myHotel.showListRooms());
     }
 
+    // much improved method.
+    @Test
+    public void canShowBedroomsList(){
+        myHotel.addBedrooms();
+        myHotel.showListRooms2();
+    }
+
+    // first attempt at listing available bedrooms test
     @Test
     public void canShowAvailableRooms(){
         myHotel.addBedroom(bedroom1);
         myHotel.addBedroom(bedroom2);
         myHotel.checkInBed(guest1,bedroom2, 1);
-        assertEquals("[29]", myHotel.showAvailRooms());
+        assertEquals("[29: superior double]", myHotel.showAvailRooms());
     }
+
+    // much improved method!
+    @Test
+    public void canShowAvailableList(){
+        myHotel.addBedrooms();
+        myHotel.checkInBed3(guest1, "10", 1);
+        myHotel.checkInBed3(guest2, "14", 1);
+        myHotel.checkInBed3(guest3, "23", 1);
+        myHotel.showAvailRooms2();
+    }
+
 
 }

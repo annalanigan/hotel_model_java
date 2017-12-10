@@ -69,4 +69,9 @@ public class BedroomTest {
         assertEquals("[Bill, Simon, Betty]", bedroom3.guestName());
     }
 
+    @Test
+    public void canDisplayRoomNameandType(){
+        assertEquals("10: double", bedroom1.showDetails());
+    }
+
 }
