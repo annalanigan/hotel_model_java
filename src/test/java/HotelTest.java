@@ -38,9 +38,9 @@ public class HotelTest {
 
     @Test
     public void canCheckIn__Bedroom(){
-        myHotel.checkInBed(guest1, bedroom1);
-        myHotel.checkInBed(guest2, bedroom1);
-        myHotel.checkInBed(guest3, bedroom1);
+        myHotel.checkInBed(guest1, bedroom1, 1);
+        myHotel.checkInBed(guest2, bedroom1,1);
+        myHotel.checkInBed(guest3, bedroom1, 1);
         // check only correct capacity added to bedroom
         assertEquals(2, bedroom1.checkCheckedIn());
         // check roomrate added to lead guest
@@ -51,8 +51,8 @@ public class HotelTest {
 
     @Test
     public void canCheckOut__Bedroom(){
-        myHotel.checkInBed(guest1, bedroom1);
-        myHotel.checkInBed(guest2, bedroom1);
+        myHotel.checkInBed(guest1, bedroom1, 1);
+        myHotel.checkInBed(guest2, bedroom1, 1);
         myHotel.checkOutBed(bedroom1);
         assertEquals(0, bedroom1.checkCheckedIn());
     }
@@ -81,6 +81,35 @@ public class HotelTest {
     }
 
     @Test
+    public void canSetUpandShowRooms(){
+        myHotel.addBedrooms();
+        System.out.println(myHotel.showListRooms());
+    }
+
+    @Test
+    public void canSetUpandCheckIn__UsingIndexNo(){
+        myHotel.addBedrooms();
+        myHotel.checkInBed2(guest1, 0, 1);
+        myHotel.checkInBed2(guest2,1,1);
+        System.out.println(myHotel.showListRooms());
+        System.out.println(myHotel.showAvailRooms());
+        assertEquals(105, guest1.getBill(),0.01);
+        assertEquals(98, guest2.getBill(),0.01);
+    }
+    @Test
+    public void canSetUpandCheckIn__UsingRoomName(){
+        myHotel.addBedrooms();
+        myHotel.checkInBed3(guest1, "30", 1);
+        myHotel.checkInBed3(guest2,"21",2);
+        myHotel.checkInBed3(guest3,"21",2);
+        System.out.println(myHotel.showListRooms());
+        System.out.println(myHotel.showAvailRooms());
+        assertEquals(250, guest1.getBill(),0.01);
+        assertEquals(210, guest2.getBill(),0.01);
+        assertEquals(0, guest3.getBill(), 0.01);
+    }
+
+    @Test
     public void canShowBedrooms(){
         myHotel.addBedroom(bedroom1);
         myHotel.addBedroom(bedroom2);
@@ -91,7 +120,8 @@ public class HotelTest {
     public void canShowAvailableRooms(){
         myHotel.addBedroom(bedroom1);
         myHotel.addBedroom(bedroom2);
-        myHotel.checkInBed(guest1,bedroom2);
+        myHotel.checkInBed(guest1,bedroom2, 1);
         assertEquals("[29]", myHotel.showAvailRooms());
     }
+
 }

@@ -83,15 +83,32 @@ public class Hotel {
         this.publicRooms.add(publicRoom);
     }
 
-    public void checkInBed(Guest guest, Bedroom bedroom) {
+    // my firstcheck in method using the actual Bedroom object as an arguement:
+    public void checkInBed(Guest guest, Bedroom bedroom, int duration) {
         if (bedroom.checkCheckedIn() == 0){
             bedroom.checkIn(guest);
-            guest.addToBill(bedroom.getRoomRate());
+            guest.addToBill(bedroom.getRoomRate()* duration);
         }
         else if (bedroom.getCapacity() > bedroom.checkCheckedIn()) {
             bedroom.checkIn(guest);
         }
     }
+
+    // using index number to find the bedroom from the ArrayList
+    public void checkInBed2(Guest guest, int index, int duration) {
+        Bedroom bedroom = bedrooms.get(index);
+        checkInBed(guest, bedroom, duration);
+    }
+
+    // using room "name" to find the bedroom from ArrayList
+    public void checkInBed3(Guest guest, String name, int duration){
+        for (Bedroom bedroom : bedrooms){
+            if (bedroom.getName() == name){
+            checkInBed(guest, bedroom, duration);
+            }
+        }
+    }
+
 
     public void checkOutBed(Bedroom bedroom){
         bedroom.checkOut();
